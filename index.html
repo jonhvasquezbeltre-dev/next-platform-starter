@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icon.png" />
+  <meta name="theme-color" content="#0D0D0F"/>
+  <title>EduQuest Lite - PWA</title>
+  <style>
+    :root{--bg:#0d0d0f;--neon:#00bfff;--accent:#9b2dff;--text:#ffffff}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Arial,sans-serif}
+    .wrap{max-width:800px;margin:0 auto;padding:20px}
+    header{display:flex;gap:12px;align-items:center}
+    h1{margin:0;font-size:20px;color:var(--neon);letter-spacing:1px}
+    .card{background:#111214;border-radius:10px;padding:16px;margin-top:18px;border:1px solid rgba(0,191,255,0.08)}
+    .big{font-size:18px;color:var(--accent);font-weight:700}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    button{background:var(--neon);color:#000;border:none;padding:10px 12px;border-radius:8px;font-weight:700}
+    .row{display:flex;gap:10px;align-items:center}
+    .timer{font-weight:800;color:#ffb86b}
+    @media (max-width:520px){h1{font-size:18px}.wrap{padding:12px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="/icon.png" alt="icon" width="56" height="56" style="border-radius:8px">
+      <h1>EduQuest Lite - PWA (Demo)</h1>
+    </header>
+
+    <div class="card" id="gameArea" role="main" aria-live="polite">
+      <div class="big" id="fragmentTitle">Archivo: <span id="word">MOTRICIDAD</span></div>
+      <p id="fragmentText">La motricidad incluye la capacidad para realizar movimientos y coordinar acciones; trabajaremos un reto rápido.</p>
+      <div class="controls">
+        <button id="startBtn">Iniciar ronda (30s)</button>
+        <button id="showForbiddenBtn">Mostrar/Ocultar prohibidas</button>
+        <button id="hintBtn">Pista</button>
+      </div>
+      <div class="card" id="forbiddenArea" style="margin-top:12px">
+        <div style="font-size:13px;color:#cfcfcf">Palabras prohibidas:</div>
+        <div id="forbiddenList" style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+          <span style="padding:6px 8px;background:#1a1a1d;border-radius:6px">CUERPO</span>
+          <span style="padding:6px 8px;background:#1a1a1d;border-radius:6px">MOVIMIENTO</span>
+          <span style="padding:6px 8px;background:#1a1a1d;border-radius:6px">COORDINACIÓN</span>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px;display:flex;justify-content:space-between;align-items:center">
+        <div class="row"><div>Puntos: <strong id="score">0</strong></div></div>
+        <div class="row">Tiempo: <div class="timer" id="timer">0s</div></div>
+      </div>
+      <div style="margin-top:12px">
+        <div style="font-size:14px;color:#cfcfcf">Acciones:</div>
+        <div class="controls" style="margin-top:8px">
+          <button id="correctBtn">CORRECTO</button>
+          <button id="passBtn" style="background:#ffb86b">PASAR</button>
+          <button id="nextBtn" style="background:#9b2dff">SIGUIENTE</button>
+        </div>
+      </div>
+      <div style="margin-top:12px;color:#9ea3a8;font-size:13px">Desliza para ver tarjetas en la app completa (demo aquí es una versión PWA simple).</div>
+    </div>
+
+    <div class="card" id="offlineCard" style="display:none;margin-top:12px">
+      <div class="big">Offline disponible ✅</div>
+      <p>La PWA funciona offline; intenta desconectar y recargar para probar.</p>
+    </div>
+
+    <div style="margin-top:18px;color:#9ea3a8;font-size:13px">
+      <strong>Importante:</strong> Este paquete contiene todo lo necesario para publicar en Netlify. Sube los archivos de la carpeta y publica. En README están los pasos.
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
